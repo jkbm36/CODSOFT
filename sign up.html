@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Floral Signup UI</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Floral + Blue Gradient */
+    background: linear-gradient(rgba(200,220,255,0.8), rgba(120,160,255,0.8)),
+                url('https://images.unsplash.com/photo-1526045612212-70caf35c14df');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Container */
+.wrapper {
+    display: flex;
+    gap: 25px;
+}
+
+/* Cards */
+.card {
+    width: 300px;
+    background: #f8f9fc;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Headings */
+h2 {
+    color: #4a6cf7;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Social icons */
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.social div {
+    width: 45px;
+    height: 45px;
+    background: #eef2ff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.social div img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.social div:hover {
+    background: #dfe6ff;
+    transform: scale(1.1);
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: none;
+    background: #eef2ff;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #5f7cff, #7f9cff);
+    border: none;
+    color: white;
+    border-radius: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Links */
+.link {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.link a {
+    color: #4a6cf7;
+    text-decoration: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- Welcome -->
+    <div class="card">
+        <h2>Welcome</h2>
+        <p>Please login or sign up to continue</p>
+
+        <div class="social">
+            <div>
+                <img src="gmail.png" alt="Gmail">
+            </div>
+            <div>
+                <img src="instagram.png" alt="Instagram">
+            </div>
+        </div>
+
+        <p>or login with mobile number</p>
+
+        <button>Sign up</button>
+
+        <div class="link">
+            Already have an account? <a href="#">Login</a>
+        </div>
+    </div>
+
+    <!-- Sign Up -->
+    <div class="card">
+        <h2>Sign Up</h2>
+        <p>Create your account</p>
+
+        <div class="social">
+            <div>
+                <img src="gmail.png" alt="Gmail">
+            </div>
+            <div>
+                <img src="instagram.png" alt="Instagram">
+            </div>
+        </div>
+
+        <p>or sign up with mobile number</p>
+
+        <input type="Enter " placeholder="Email">
+        <input type="password" placeholder="Password">
+
+        <button>Sign Up</button>
+
+        <div class="link">
+            Already have an account? <a href="#">Login</a>
+        </div>
+    </div>
+
+    <!-- Login -->
+    <div class="card">
+        <h2>Login Now</h2>
+        <p>Welcome back!</p>
+
+        <div class="social">
+            <div>
+                <img src="gmail.png" alt="Gmail">
+            </div>
+            <div>
+                <img src="instagram.png" alt="Instagram">
+            </div>
+        </div>
+
+        <p>or login with mobile number</p>
+
+        <input type="Enter " placeholder="Email">
+        <input type="password" placeholder="Password">
+
+        <button>Login</button>
+
+        <div class="link">
+            Don’t have an account? <a href="#">Sign up</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
