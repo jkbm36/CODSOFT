@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant Menu UI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    color: #fff;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+header p {
+    opacity: 0.8;
+}
+
+/* Category Buttons */
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px;
+}
+
+.menu-tabs button {
+    padding: 10px 20px;
+    border: none;
+    background: #ffffff20;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu-tabs button:hover,
+.menu-tabs button.active {
+    background: #ff7a18;
+}
+
+/* Menu Grid */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Card */
+.menu-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.menu-content {
+    padding: 15px;
+}
+
+.menu-content h3 {
+    margin-bottom: 5px;
+}
+
+.menu-content p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.price {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ffcc70;
+}
+
+/* Responsive */
+@media(max-width: 600px){
+    header h1 {
+        font-size: 2rem;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>🍽️ Gourmet Menu</h1>
+    <p>Delicious food crafted with passion</p>
+</header>
+
+<div class="menu-tabs">
+    <button class="active" onclick="filterMenu('all')">All</button>
+    <button onclick="filterMenu('starter')">Starters</button>
+    <button onclick="filterMenu('main')">Main Course</button>
+    <button onclick="filterMenu('dessert')">Desserts</button>
+</div>
+
+<div class="menu-container" id="menu">
+
+    <!-- Item -->
+    <div class="menu-item starter">
+        <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+        <div class="menu-content">
+            <h3>Bruschetta</h3>
+            <p>Grilled bread with tomato & basil</p>
+            <div class="price">₹180</div>
+        </div>
+    </div>
+
+    <div class="menu-item main">
+        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+        <div class="menu-content">
+            <h3>Grilled Chicken</h3>
+            <p>Served with veggies & sauce</p>
+            <div class="price">₹350</div>
+        </div>
+    </div>
+
+    <div class="menu-item starter">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947">
+        <div class="menu-content">
+            <h3>Spring Rolls</h3>
+            <p>Crispy rolls with spicy filling</p>
+            <div class="price">₹150</div>
+        </div>
+    </div>
+
+    <div class="menu-item main">
+        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+        <div class="menu-content">
+            <h3>Burger</h3>
+            <p>Juicy grilled burger with cheese</p>
+            <div class="price">₹250</div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function filterMenu(category) {
+    const items = document.querySelectorAll('.menu-item');
+    const buttons = document.querySelectorAll('.menu-tabs button');
+
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    items.forEach(item => {
+        if (category === 'all') {
+            item.style.display = 'block';
+        } else {
+            item.style.display = item.classList.contains(category) ? 'block' : 'none';
+        }
+    });
+}
+</script>
+
+</body>
+</html>
