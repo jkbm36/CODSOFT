@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce Store</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+}
+
+/* HEADER */
+header {
+    background: #1e3c72;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 22px;
+}
+
+.search-box {
+    width: 40%;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+/* CATEGORY MENU */
+.categories {
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    padding: 10px;
+    gap: 20px;
+}
+
+.categories button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #e0e0e0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.categories button:hover {
+    background: #1e3c72;
+    color: white;
+}
+
+/* PRODUCT GRID */
+.container {
+    padding: 30px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.price {
+    color: #1e3c72;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.card button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #1e3c72;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background: #16305a;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #1e3c72;
+    color: white;
+    margin-top: 30px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px){
+    .search-box {
+        width: 60%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ShopEase</h1>
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Search products..." onkeyup="searchProduct()">
+    </div>
+</header>
+
+<div class="categories">
+    <button onclick="filterCategory('all')">All</button>
+    <button onclick="filterCategory('electronics')">Electronics</button>
+    <button onclick="filterCategory('fashion')">Fashion</button>
+    <button onclick="filterCategory('home')">Home</button>
+</div>
+
+<div class="container">
+    <div class="products" id="productList">
+
+        <!-- PRODUCT 1 -->
+        <div class="card" data-category="electronics">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
+            <div class="card-content">
+                <h3>Smartphone</h3>
+                <p class="price">₹15,000</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- PRODUCT 2 -->
+        <div class="card" data-category="electronics">
+            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8">
+            <div class="card-content">
+                <h3>Laptop</h3>
+                <p class="price">₹55,000</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    © 2026 ShopEase | Designed for UI/UX Project
+</footer>
+
+<script>
+// SEARCH FUNCTION
+function searchProduct() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        let title = card.querySelector("h3").innerText.toLowerCase();
+        card.style.display = title.includes(input) ? "block" : "none";
+    });
+}
+
+// CATEGORY FILTER
+function filterCategory(category) {
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        if (category === "all" || card.dataset.category === category) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+</script>
+
+</body>
+</html>
